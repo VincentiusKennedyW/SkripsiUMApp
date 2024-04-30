@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:skripsi_mulia_app/utils/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,6 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
             initialLocation: index == widget.child.currentIndex,
           );
           setState(() {});
+
+          if (index == 2) {
+            setState(() {
+              context.read<UserBloc>().add(const UserEvent.getUserData());
+            });
+          }
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
