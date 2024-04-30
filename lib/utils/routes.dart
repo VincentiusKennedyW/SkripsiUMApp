@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skripsi_mulia_app/presentation/screens/auth_screen/login_screen.dart';
+import 'package:skripsi_mulia_app/presentation/screens/auth_screen/register_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/bookmark_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/home_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/profile_screen.dart';
@@ -67,10 +68,10 @@ final router = GoRouter(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
     ),
-    // GoRoute(
-    //   name: 'register',
-    //   path: '/register',
-    //   builder: (context, state) => const RegisterScreen(),
-    // ),
+    GoRoute(
+      name: 'register',
+      path: '/register',
+      builder: (context, state) => const RegisterScreen(),
+    ),
   ],
 );
