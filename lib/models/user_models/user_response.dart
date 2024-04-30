@@ -18,7 +18,7 @@ class UserResponse with _$UserResponse {
 @freezed
 class User with _$User {
   const factory User({
-    required String id,
+    required int id,
     required String username,
     required String email,
   }) = _User;

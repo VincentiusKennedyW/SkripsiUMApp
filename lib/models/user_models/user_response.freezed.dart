@@ -205,7 +205,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
 
@@ -219,7 +219,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id, String username, String email});
+  $Res call({int id, String username, String email});
 }
 
 /// @nodoc
@@ -243,7 +243,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -263,7 +263,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String username, String email});
+  $Res call({int id, String username, String email});
 }
 
 /// @nodoc
@@ -284,7 +284,7 @@ class __$$UserImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -307,7 +307,7 @@ class _$UserImpl implements _User {
       _$$UserImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String username;
   @override
@@ -349,14 +349,14 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
+      {required final int id,
       required final String username,
       required final String email}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get username;
   @override
