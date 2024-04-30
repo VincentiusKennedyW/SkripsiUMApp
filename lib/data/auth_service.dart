@@ -67,10 +67,9 @@ class AuthService {
     }
   }
 
-  Future<bool> getToken() async {
+  Future<String?> loadToken() async {
     final storage = await SharedPreferences.getInstance();
-    final token = storage.getString('token');
-    return token != null;
+    return storage.getString('token');
   }
 
   Future<void> persistToken(String token) async {
