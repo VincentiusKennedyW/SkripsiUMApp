@@ -26,19 +26,19 @@ Map<String, dynamic> _$$SkripsiDetailResponseImplToJson(
 _$SkripsiDetailImpl _$$SkripsiDetailImplFromJson(Map<String, dynamic> json) =>
     _$SkripsiDetailImpl(
       id: json['id'] as String,
-      title: json['title'] as String,
-      author: json['author'] as String,
+      judul: json['judul'] as String,
+      nama: json['nama'] as String,
       nim: json['nim'] as String,
-      year: json['year'] as String,
-      major: json['major'] as String,
+      angkatan: json['angkatan'] as String,
+      jurusan: json['jurusan'] as String,
     );
 
 Map<String, dynamic> _$$SkripsiDetailImplToJson(_$SkripsiDetailImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
-      'author': instance.author,
+      'judul': instance.judul,
+      'nama': instance.nama,
       'nim': instance.nim,
-      'year': instance.year,
-      'major': instance.major,
+      'angkatan': instance.angkatan,
+      'jurusan': instance.jurusan,
     };

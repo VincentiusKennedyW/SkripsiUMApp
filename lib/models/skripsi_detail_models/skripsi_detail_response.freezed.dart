@@ -215,11 +215,11 @@ SkripsiDetail _$SkripsiDetailFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SkripsiDetail {
   String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
+  String get judul => throw _privateConstructorUsedError;
+  String get nama => throw _privateConstructorUsedError;
   String get nim => throw _privateConstructorUsedError;
-  String get year => throw _privateConstructorUsedError;
-  String get major => throw _privateConstructorUsedError;
+  String get angkatan => throw _privateConstructorUsedError;
+  String get jurusan => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -235,11 +235,11 @@ abstract class $SkripsiDetailCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      String title,
-      String author,
+      String judul,
+      String nama,
       String nim,
-      String year,
-      String major});
+      String angkatan,
+      String jurusan});
 }
 
 /// @nodoc
@@ -256,36 +256,36 @@ class _$SkripsiDetailCopyWithImpl<$Res, $Val extends SkripsiDetail>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? author = null,
+    Object? judul = null,
+    Object? nama = null,
     Object? nim = null,
-    Object? year = null,
-    Object? major = null,
+    Object? angkatan = null,
+    Object? jurusan = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      judul: null == judul
+          ? _value.judul
+          : judul // ignore: cast_nullable_to_non_nullable
               as String,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+      nama: null == nama
+          ? _value.nama
+          : nama // ignore: cast_nullable_to_non_nullable
               as String,
       nim: null == nim
           ? _value.nim
           : nim // ignore: cast_nullable_to_non_nullable
               as String,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      angkatan: null == angkatan
+          ? _value.angkatan
+          : angkatan // ignore: cast_nullable_to_non_nullable
               as String,
-      major: null == major
-          ? _value.major
-          : major // ignore: cast_nullable_to_non_nullable
+      jurusan: null == jurusan
+          ? _value.jurusan
+          : jurusan // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -301,11 +301,11 @@ abstract class _$$SkripsiDetailImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      String title,
-      String author,
+      String judul,
+      String nama,
       String nim,
-      String year,
-      String major});
+      String angkatan,
+      String jurusan});
 }
 
 /// @nodoc
@@ -320,36 +320,36 @@ class __$$SkripsiDetailImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? author = null,
+    Object? judul = null,
+    Object? nama = null,
     Object? nim = null,
-    Object? year = null,
-    Object? major = null,
+    Object? angkatan = null,
+    Object? jurusan = null,
   }) {
     return _then(_$SkripsiDetailImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      judul: null == judul
+          ? _value.judul
+          : judul // ignore: cast_nullable_to_non_nullable
               as String,
-      author: null == author
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+      nama: null == nama
+          ? _value.nama
+          : nama // ignore: cast_nullable_to_non_nullable
               as String,
       nim: null == nim
           ? _value.nim
           : nim // ignore: cast_nullable_to_non_nullable
               as String,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      angkatan: null == angkatan
+          ? _value.angkatan
+          : angkatan // ignore: cast_nullable_to_non_nullable
               as String,
-      major: null == major
-          ? _value.major
-          : major // ignore: cast_nullable_to_non_nullable
+      jurusan: null == jurusan
+          ? _value.jurusan
+          : jurusan // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -360,11 +360,11 @@ class __$$SkripsiDetailImplCopyWithImpl<$Res>
 class _$SkripsiDetailImpl implements _SkripsiDetail {
   const _$SkripsiDetailImpl(
       {required this.id,
-      required this.title,
-      required this.author,
+      required this.judul,
+      required this.nama,
       required this.nim,
-      required this.year,
-      required this.major});
+      required this.angkatan,
+      required this.jurusan});
 
   factory _$SkripsiDetailImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkripsiDetailImplFromJson(json);
@@ -372,19 +372,19 @@ class _$SkripsiDetailImpl implements _SkripsiDetail {
   @override
   final String id;
   @override
-  final String title;
+  final String judul;
   @override
-  final String author;
+  final String nama;
   @override
   final String nim;
   @override
-  final String year;
+  final String angkatan;
   @override
-  final String major;
+  final String jurusan;
 
   @override
   String toString() {
-    return 'SkripsiDetail(id: $id, title: $title, author: $author, nim: $nim, year: $year, major: $major)';
+    return 'SkripsiDetail(id: $id, judul: $judul, nama: $nama, nim: $nim, angkatan: $angkatan, jurusan: $jurusan)';
   }
 
   @override
@@ -393,17 +393,18 @@ class _$SkripsiDetailImpl implements _SkripsiDetail {
         (other.runtimeType == runtimeType &&
             other is _$SkripsiDetailImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.author, author) || other.author == author) &&
+            (identical(other.judul, judul) || other.judul == judul) &&
+            (identical(other.nama, nama) || other.nama == nama) &&
             (identical(other.nim, nim) || other.nim == nim) &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.major, major) || other.major == major));
+            (identical(other.angkatan, angkatan) ||
+                other.angkatan == angkatan) &&
+            (identical(other.jurusan, jurusan) || other.jurusan == jurusan));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, title, author, nim, year, major);
+      Object.hash(runtimeType, id, judul, nama, nim, angkatan, jurusan);
 
   @JsonKey(ignore: true)
   @override
@@ -422,11 +423,11 @@ class _$SkripsiDetailImpl implements _SkripsiDetail {
 abstract class _SkripsiDetail implements SkripsiDetail {
   const factory _SkripsiDetail(
       {required final String id,
-      required final String title,
-      required final String author,
+      required final String judul,
+      required final String nama,
       required final String nim,
-      required final String year,
-      required final String major}) = _$SkripsiDetailImpl;
+      required final String angkatan,
+      required final String jurusan}) = _$SkripsiDetailImpl;
 
   factory _SkripsiDetail.fromJson(Map<String, dynamic> json) =
       _$SkripsiDetailImpl.fromJson;
@@ -434,15 +435,15 @@ abstract class _SkripsiDetail implements SkripsiDetail {
   @override
   String get id;
   @override
-  String get title;
+  String get judul;
   @override
-  String get author;
+  String get nama;
   @override
   String get nim;
   @override
-  String get year;
+  String get angkatan;
   @override
-  String get major;
+  String get jurusan;
   @override
   @JsonKey(ignore: true)
   _$$SkripsiDetailImplCopyWith<_$SkripsiDetailImpl> get copyWith =>

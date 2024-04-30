@@ -19,11 +19,11 @@ class SkripsiDetailResponse with _$SkripsiDetailResponse {
 class SkripsiDetail with _$SkripsiDetail {
   const factory SkripsiDetail({
     required String id,
-    required String title,
-    required String author,
+    required String judul,
+    required String nama,
     required String nim,
-    required String year,
-    required String major,
+    required String angkatan,
+    required String jurusan,
   }) = _SkripsiDetail;
 
   factory SkripsiDetail.fromJson(Map<String, dynamic> json) =>
