@@ -22,9 +22,6 @@ SkripsiResponse _$SkripsiResponseFromJson(Map<String, dynamic> json) {
 mixin _$SkripsiResponse {
   bool get error => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
-  int get totalItems => throw _privateConstructorUsedError;
-  int get currentPage => throw _privateConstructorUsedError;
-  int get lastPage => throw _privateConstructorUsedError;
   List<Skripsi> get skripsi => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,13 +36,7 @@ abstract class $SkripsiResponseCopyWith<$Res> {
           SkripsiResponse value, $Res Function(SkripsiResponse) then) =
       _$SkripsiResponseCopyWithImpl<$Res, SkripsiResponse>;
   @useResult
-  $Res call(
-      {bool error,
-      String message,
-      int totalItems,
-      int currentPage,
-      int lastPage,
-      List<Skripsi> skripsi});
+  $Res call({bool error, String message, List<Skripsi> skripsi});
 }
 
 /// @nodoc
@@ -63,9 +54,6 @@ class _$SkripsiResponseCopyWithImpl<$Res, $Val extends SkripsiResponse>
   $Res call({
     Object? error = null,
     Object? message = null,
-    Object? totalItems = null,
-    Object? currentPage = null,
-    Object? lastPage = null,
     Object? skripsi = null,
   }) {
     return _then(_value.copyWith(
@@ -77,18 +65,6 @@ class _$SkripsiResponseCopyWithImpl<$Res, $Val extends SkripsiResponse>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      totalItems: null == totalItems
-          ? _value.totalItems
-          : totalItems // ignore: cast_nullable_to_non_nullable
-              as int,
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      lastPage: null == lastPage
-          ? _value.lastPage
-          : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
       skripsi: null == skripsi
           ? _value.skripsi
           : skripsi // ignore: cast_nullable_to_non_nullable
@@ -105,13 +81,7 @@ abstract class _$$SkripsiResponseImplCopyWith<$Res>
       __$$SkripsiResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool error,
-      String message,
-      int totalItems,
-      int currentPage,
-      int lastPage,
-      List<Skripsi> skripsi});
+  $Res call({bool error, String message, List<Skripsi> skripsi});
 }
 
 /// @nodoc
@@ -127,9 +97,6 @@ class __$$SkripsiResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
     Object? message = null,
-    Object? totalItems = null,
-    Object? currentPage = null,
-    Object? lastPage = null,
     Object? skripsi = null,
   }) {
     return _then(_$SkripsiResponseImpl(
@@ -141,18 +108,6 @@ class __$$SkripsiResponseImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
-      totalItems: null == totalItems
-          ? _value.totalItems
-          : totalItems // ignore: cast_nullable_to_non_nullable
-              as int,
-      currentPage: null == currentPage
-          ? _value.currentPage
-          : currentPage // ignore: cast_nullable_to_non_nullable
-              as int,
-      lastPage: null == lastPage
-          ? _value.lastPage
-          : lastPage // ignore: cast_nullable_to_non_nullable
-              as int,
       skripsi: null == skripsi
           ? _value._skripsi
           : skripsi // ignore: cast_nullable_to_non_nullable
@@ -167,9 +122,6 @@ class _$SkripsiResponseImpl implements _SkripsiResponse {
   const _$SkripsiResponseImpl(
       {required this.error,
       required this.message,
-      required this.totalItems,
-      required this.currentPage,
-      required this.lastPage,
       required final List<Skripsi> skripsi})
       : _skripsi = skripsi;
 
@@ -180,12 +132,6 @@ class _$SkripsiResponseImpl implements _SkripsiResponse {
   final bool error;
   @override
   final String message;
-  @override
-  final int totalItems;
-  @override
-  final int currentPage;
-  @override
-  final int lastPage;
   final List<Skripsi> _skripsi;
   @override
   List<Skripsi> get skripsi {
@@ -196,7 +142,7 @@ class _$SkripsiResponseImpl implements _SkripsiResponse {
 
   @override
   String toString() {
-    return 'SkripsiResponse(error: $error, message: $message, totalItems: $totalItems, currentPage: $currentPage, lastPage: $lastPage, skripsi: $skripsi)';
+    return 'SkripsiResponse(error: $error, message: $message, skripsi: $skripsi)';
   }
 
   @override
@@ -206,19 +152,13 @@ class _$SkripsiResponseImpl implements _SkripsiResponse {
             other is _$SkripsiResponseImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.totalItems, totalItems) ||
-                other.totalItems == totalItems) &&
-            (identical(other.currentPage, currentPage) ||
-                other.currentPage == currentPage) &&
-            (identical(other.lastPage, lastPage) ||
-                other.lastPage == lastPage) &&
             const DeepCollectionEquality().equals(other._skripsi, _skripsi));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, error, message, totalItems,
-      currentPage, lastPage, const DeepCollectionEquality().hash(_skripsi));
+  int get hashCode => Object.hash(runtimeType, error, message,
+      const DeepCollectionEquality().hash(_skripsi));
 
   @JsonKey(ignore: true)
   @override
@@ -239,9 +179,6 @@ abstract class _SkripsiResponse implements SkripsiResponse {
   const factory _SkripsiResponse(
       {required final bool error,
       required final String message,
-      required final int totalItems,
-      required final int currentPage,
-      required final int lastPage,
       required final List<Skripsi> skripsi}) = _$SkripsiResponseImpl;
 
   factory _SkripsiResponse.fromJson(Map<String, dynamic> json) =
@@ -251,12 +188,6 @@ abstract class _SkripsiResponse implements SkripsiResponse {
   bool get error;
   @override
   String get message;
-  @override
-  int get totalItems;
-  @override
-  int get currentPage;
-  @override
-  int get lastPage;
   @override
   List<Skripsi> get skripsi;
   @override
@@ -271,9 +202,9 @@ Skripsi _$SkripsiFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Skripsi {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get year => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  String get judul => throw _privateConstructorUsedError;
+  String get angkatan => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -285,7 +216,7 @@ abstract class $SkripsiCopyWith<$Res> {
   factory $SkripsiCopyWith(Skripsi value, $Res Function(Skripsi) then) =
       _$SkripsiCopyWithImpl<$Res, Skripsi>;
   @useResult
-  $Res call({String id, String title, String year});
+  $Res call({int id, String judul, String angkatan});
 }
 
 /// @nodoc
@@ -302,21 +233,21 @@ class _$SkripsiCopyWithImpl<$Res, $Val extends Skripsi>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? year = null,
+    Object? judul = null,
+    Object? angkatan = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      judul: null == judul
+          ? _value.judul
+          : judul // ignore: cast_nullable_to_non_nullable
               as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      angkatan: null == angkatan
+          ? _value.angkatan
+          : angkatan // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -329,7 +260,7 @@ abstract class _$$SkripsiImplCopyWith<$Res> implements $SkripsiCopyWith<$Res> {
       __$$SkripsiImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String year});
+  $Res call({int id, String judul, String angkatan});
 }
 
 /// @nodoc
@@ -344,21 +275,21 @@ class __$$SkripsiImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? title = null,
-    Object? year = null,
+    Object? judul = null,
+    Object? angkatan = null,
   }) {
     return _then(_$SkripsiImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      judul: null == judul
+          ? _value.judul
+          : judul // ignore: cast_nullable_to_non_nullable
               as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      angkatan: null == angkatan
+          ? _value.angkatan
+          : angkatan // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -368,21 +299,21 @@ class __$$SkripsiImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$SkripsiImpl implements _Skripsi {
   const _$SkripsiImpl(
-      {required this.id, required this.title, required this.year});
+      {required this.id, required this.judul, required this.angkatan});
 
   factory _$SkripsiImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkripsiImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
-  final String title;
+  final String judul;
   @override
-  final String year;
+  final String angkatan;
 
   @override
   String toString() {
-    return 'Skripsi(id: $id, title: $title, year: $year)';
+    return 'Skripsi(id: $id, judul: $judul, angkatan: $angkatan)';
   }
 
   @override
@@ -391,13 +322,14 @@ class _$SkripsiImpl implements _Skripsi {
         (other.runtimeType == runtimeType &&
             other is _$SkripsiImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.year, year) || other.year == year));
+            (identical(other.judul, judul) || other.judul == judul) &&
+            (identical(other.angkatan, angkatan) ||
+                other.angkatan == angkatan));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, year);
+  int get hashCode => Object.hash(runtimeType, id, judul, angkatan);
 
   @JsonKey(ignore: true)
   @override
@@ -415,18 +347,18 @@ class _$SkripsiImpl implements _Skripsi {
 
 abstract class _Skripsi implements Skripsi {
   const factory _Skripsi(
-      {required final String id,
-      required final String title,
-      required final String year}) = _$SkripsiImpl;
+      {required final int id,
+      required final String judul,
+      required final String angkatan}) = _$SkripsiImpl;
 
   factory _Skripsi.fromJson(Map<String, dynamic> json) = _$SkripsiImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
-  String get title;
+  String get judul;
   @override
-  String get year;
+  String get angkatan;
   @override
   @JsonKey(ignore: true)
   _$$SkripsiImplCopyWith<_$SkripsiImpl> get copyWith =>

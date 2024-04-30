@@ -8,9 +8,6 @@ class SkripsiResponse with _$SkripsiResponse {
   const factory SkripsiResponse({
     required bool error,
     required String message,
-    required int totalItems,
-    required int currentPage,
-    required int lastPage,
     required List<Skripsi> skripsi,
   }) = _SkripsiResponse;
 
@@ -21,9 +18,9 @@ class SkripsiResponse with _$SkripsiResponse {
 @freezed
 class Skripsi with _$Skripsi {
   const factory Skripsi({
-    required String id,
-    required String title,
-    required String year,
+    required int id,
+    required String judul,
+    required String angkatan,
   }) = _Skripsi;
 
   factory Skripsi.fromJson(Map<String, dynamic> json) =>
