@@ -4,6 +4,7 @@ import 'package:skripsi_mulia_app/data/auth_service.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/register_bloc/register_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_bloc/skripsi_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/skripsi_detail_bloc/skripsi_detail_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
 
 final locator = GetIt.instance;
@@ -12,6 +13,7 @@ void init() {
   locator.registerFactory(() => RegisterBloc(locator()));
   locator.registerFactory(() => UserBloc(locator()));
   locator.registerFactory(() => SkripsiBloc(locator(), locator()));
+  locator.registerFactory(() => SkripsiDetailBloc(locator(), locator()));
 
   locator.registerLazySingleton<AuthService>(() => AuthService());
   locator.registerLazySingleton<ApiService>(() => ApiService());

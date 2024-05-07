@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/register_bloc/register_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_bloc/skripsi_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/skripsi_detail_bloc/skripsi_detail_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:skripsi_mulia_app/utils/injection.dart' as di;
 import 'package:skripsi_mulia_app/utils/routes.dart';
@@ -31,6 +32,7 @@ class MainApp extends StatelessWidget {
           create: (context) => di.locator<UserBloc>(),
         ),
         BlocProvider(create: (context) => di.locator<SkripsiBloc>()),
+        BlocProvider(create: (context) => di.locator<SkripsiDetailBloc>()),
       ],
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
