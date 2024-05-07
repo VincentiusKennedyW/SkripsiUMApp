@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_detail_bloc/skripsi_detail_bloc.dart';
@@ -84,7 +82,7 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
                                         color: Colors.white,
                                         onPressed: () {},
                                       ),
-                                      Text('Simpan Judul Ini',
+                                      const Text('Simpan Judul Ini',
                                           style: TextStyle(
                                             color: Colors.white70,
                                             fontSize: 14,
