@@ -24,17 +24,14 @@ class SkripsiBloc extends Bloc<SkripsiEvent, SkripsiState> {
       sizeItem = 10;
       listSkripsi = [];
       final token = await _authService.loadToken();
-      print('token: $token');
       try {
         final skripsiResponse = await _apiService.getSkripsi(token!, page);
-        print('token: $token');
         listSkripsi = skripsiResponse.skripsi;
         page += 1;
         hasReachedMax = false;
         emit(
             SkripsiState.skripsiLoaded(skripsiResponse.skripsi, hasReachedMax));
       } catch (e) {
-        print('object error');
         emit(SkripsiState.skripsiError("Failed to fetch skripsi: $e"));
       }
     });
