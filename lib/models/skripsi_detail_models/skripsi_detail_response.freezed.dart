@@ -214,7 +214,7 @@ SkripsiDetail _$SkripsiDetailFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkripsiDetail {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get judul => throw _privateConstructorUsedError;
   String get nama => throw _privateConstructorUsedError;
   String get nim => throw _privateConstructorUsedError;
@@ -234,7 +234,7 @@ abstract class $SkripsiDetailCopyWith<$Res> {
       _$SkripsiDetailCopyWithImpl<$Res, SkripsiDetail>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String judul,
       String nama,
       String nim,
@@ -266,7 +266,7 @@ class _$SkripsiDetailCopyWithImpl<$Res, $Val extends SkripsiDetail>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       judul: null == judul
           ? _value.judul
           : judul // ignore: cast_nullable_to_non_nullable
@@ -300,7 +300,7 @@ abstract class _$$SkripsiDetailImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String judul,
       String nama,
       String nim,
@@ -330,7 +330,7 @@ class __$$SkripsiDetailImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       judul: null == judul
           ? _value.judul
           : judul // ignore: cast_nullable_to_non_nullable
@@ -370,7 +370,7 @@ class _$SkripsiDetailImpl implements _SkripsiDetail {
       _$$SkripsiDetailImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String judul;
   @override
@@ -422,7 +422,7 @@ class _$SkripsiDetailImpl implements _SkripsiDetail {
 
 abstract class _SkripsiDetail implements SkripsiDetail {
   const factory _SkripsiDetail(
-      {required final String id,
+      {required final int id,
       required final String judul,
       required final String nama,
       required final String nim,
@@ -433,7 +433,7 @@ abstract class _SkripsiDetail implements SkripsiDetail {
       _$SkripsiDetailImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get judul;
   @override

@@ -18,7 +18,7 @@ class SkripsiDetailResponse with _$SkripsiDetailResponse {
 @freezed
 class SkripsiDetail with _$SkripsiDetail {
   const factory SkripsiDetail({
-    required String id,
+    required int id,
     required String judul,
     required String nama,
     required String nim,

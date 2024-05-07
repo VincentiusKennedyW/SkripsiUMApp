@@ -25,7 +25,7 @@ Map<String, dynamic> _$$SkripsiDetailResponseImplToJson(
 
 _$SkripsiDetailImpl _$$SkripsiDetailImplFromJson(Map<String, dynamic> json) =>
     _$SkripsiDetailImpl(
-      id: json['id'] as String,
+      id: (json['id'] as num).toInt(),
       judul: json['judul'] as String,
       nama: json['nama'] as String,
       nim: json['nim'] as String,
