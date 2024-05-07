@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_bloc/skripsi_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/widget/skripsi_bottomsheet.dart';
+import 'package:skripsi_mulia_app/presentation/widget/skripsi_list.dart';
 
 class SkripsiListScreen extends StatefulWidget {
   const SkripsiListScreen({super.key});
@@ -12,31 +14,17 @@ class SkripsiListScreen extends StatefulWidget {
 }
 
 class _SkripsiListScreenState extends State<SkripsiListScreen> {
-  final ScrollController scrollController = ScrollController();
-
   @override
   void initState() {
     context.read<SkripsiBloc>().add(const SkripsiEvent.getSkripsi());
-    scrollController.addListener(() {
-      if (scrollController.position.pixels >=
-          scrollController.position.maxScrollExtent) {
-        context.read<SkripsiBloc>().add(const SkripsiEvent.getNextSkripsi());
-      }
-    });
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Skripsi Universitas Mulia'),
+        title: const Text('Repository Universitas Mulia'),
         actions: [
           IconButton(
               icon: const Icon(Icons.logout),
@@ -78,38 +66,16 @@ class _SkripsiListScreenState extends State<SkripsiListScreen> {
               child: CircularProgressIndicator(),
             ),
             skripsiLoaded: (listSkripsi, hasReachedMax) {
-              return ListView.builder(
-                controller: scrollController,
-                shrinkWrap: true,
-                itemCount: (hasReachedMax!)
-                    ? listSkripsi.length
-                    : listSkripsi.length + 1,
-                itemBuilder: (context, index) {
-                  return (index >= listSkripsi.length)
-                      ? const Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: CircularProgressIndicator(),
-                          ),
-                        )
-                      : ListTile(
-                          leading: IconButton(
-                            icon: const Icon(Icons.bookmark_border),
-                            onPressed: () {},
-                          ),
-                          title: Text(listSkripsi[index].judul),
-                          subtitle: Text(listSkripsi[index].angkatan),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.arrow_forward_ios),
-                            onPressed: () {
-                              context
-                                  .goNamed('/skripsi/${listSkripsi[index].id}');
-                            },
-                          )
-                          // onTap: () {
-                          //   context.goNamed('/skripsi/${skripsiData.id}');
-                          // },
-                          );
+              return SkripsiList(
+                listSkripsi: listSkripsi,
+                hasReachedMax: hasReachedMax,
+                onSkripsiTap: (skripsi) {
+                  showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (BuildContext context) {
+                        return SkripsiBottomSheet(skripsi: skripsi);
+                      });
                 },
               );
             },
