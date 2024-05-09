@@ -72,7 +72,6 @@ class ApiService {
   Future<List<Skripsi>> getBookmarks(String token) async {
     List<Skripsi> bookmarkedSkripsi = [];
 
-    print('masuk getBookmarks');
     try {
       final response = await http.get(
         Uri.parse('$baseUrl/bookmark'),
@@ -90,7 +89,6 @@ class ApiService {
         bookmarkedSkripsi = listBookmarkJson
             .map((skripsi) => Skripsi.fromJson(skripsi))
             .toList();
-        print(bookmarkedSkripsi);
         return bookmarkedSkripsi;
       } else {
         final errorBody = json.decode(response.body);
@@ -98,7 +96,6 @@ class ApiService {
         throw Exception(errorMessage ?? "Failed to load bookmark");
       }
     } catch (e) {
-      print('Errorrrr $e');
       throw Exception("Failed to load bookmark: $e");
     }
   }
