@@ -24,7 +24,6 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
 
   @override
   void initState() {
-    print(_bookmarkedSkripsi);
     super.initState();
     _loadBookmarks();
     context.read<SkripsiDetailBloc>().add(
@@ -35,8 +34,6 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
   Future<void> _loadBookmarks() async {
     final token = await AuthService().loadToken();
     _bookmarkedSkripsi = await ApiService().getBookmarks(token!);
-    print(
-        _bookmarkedSkripsi); // Tambahkan ini untuk memeriksa data yang dimuat ulang
     setState(() {});
   }
 
