@@ -68,4 +68,87 @@ class ApiService {
       throw Exception("Failed to load skripsi detail: $e");
     }
   }
+
+  Future<List<Skripsi>> getBookmarks(String token) async {
+    List<Skripsi> bookmarkedSkripsi = [];
+
+    print('masuk getBookmarks');
+    try {
+      final response = await http.get(
+        Uri.parse('$baseUrl/bookmark'),
+        headers: <String, String>{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+        final List<dynamic> listBookmarkJson = responseData['bookmark_list'];
+
+        bookmarkedSkripsi = listBookmarkJson
+            .map((skripsi) => Skripsi.fromJson(skripsi))
+            .toList();
+        print(bookmarkedSkripsi);
+        return bookmarkedSkripsi;
+      } else {
+        final errorBody = json.decode(response.body);
+        final errorMessage = errorBody['message'];
+        throw Exception(errorMessage ?? "Failed to load bookmark");
+      }
+    } catch (e) {
+      print('Errorrrr $e');
+      throw Exception("Failed to load bookmark: $e");
+    }
+  }
+
+  Future<void> createBookmark(String token, int id) async {
+    try {
+      final response = await http.post(
+        Uri.parse('$baseUrl/bookmark'),
+        body: jsonEncode(<String, dynamic>{
+          'skripsi_id': id,
+        }),
+        headers: <String, String>{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 201) {
+        return;
+      } else {
+        final errorBody = json.decode(response.body);
+        final errorMessage = errorBody['message'];
+        throw Exception(errorMessage ?? "Failed to create bookmark");
+      }
+    } catch (e) {
+      throw Exception("Failed to create bookmark: $e");
+    }
+  }
+
+  Future<void> removeBookmark(String token, int id) async {
+    try {
+      final response = await http.delete(
+        Uri.parse('$baseUrl/bookmark/$id'),
+        headers: <String, String>{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return;
+      } else {
+        final errorBody = json.decode(response.body);
+        final errorMessage = errorBody['message'];
+        throw Exception(errorMessage ?? "Failed to delete bookmark");
+      }
+    } catch (e) {
+      throw Exception("Failed to delete bookmark: $e");
+    }
+  }
 }
