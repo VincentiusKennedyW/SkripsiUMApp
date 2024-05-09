@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/bookmark_bloc/bookmark_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/register_bloc/register_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_bloc/skripsi_bloc.dart';
@@ -33,6 +34,7 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) => di.locator<SkripsiBloc>()),
         BlocProvider(create: (context) => di.locator<SkripsiDetailBloc>()),
+        BlocProvider(create: (context) => di.locator<BookmarkBloc>()),
       ],
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skripsi_mulia_app/data/api_service.dart';
+import 'package:skripsi_mulia_app/data/auth_service.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/bookmark_bloc/bookmark_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_detail_bloc/skripsi_detail_bloc.dart';
 import 'package:skripsi_mulia_app/utils/theme.dart';
 
@@ -17,12 +20,24 @@ class SkripsiBottomSheet extends StatefulWidget {
 }
 
 class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
+  List<Skripsi> _bookmarkedSkripsi = [];
+
   @override
   void initState() {
+    print(_bookmarkedSkripsi);
     super.initState();
+    _loadBookmarks();
     context.read<SkripsiDetailBloc>().add(
           SkripsiDetailEvent.getSkripsiDetail(widget.skripsi.id),
         );
+  }
+
+  Future<void> _loadBookmarks() async {
+    final token = await AuthService().loadToken();
+    _bookmarkedSkripsi = await ApiService().getBookmarks(token!);
+    print(
+        _bookmarkedSkripsi); // Tambahkan ini untuk memeriksa data yang dimuat ulang
+    setState(() {});
   }
 
   @override
@@ -48,6 +63,8 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
                 ),
               ),
               skripsiDetailLoaded: (skripsiDetail) {
+                final isBookmarked = _bookmarkedSkripsi
+                    .any((element) => element.id == skripsiDetail.id);
                 return Container(
                   decoration: const BoxDecoration(
                     color: Color(0xFF395B64),
@@ -78,9 +95,47 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
                                   Row(
                                     children: [
                                       IconButton(
-                                        icon: const Icon(Icons.bookmark_border),
+                                        icon: isBookmarked
+                                            ? const Icon(
+                                                Icons.bookmark,
+                                                color: Colors.red,
+                                              )
+                                            : const Icon(
+                                                Icons.bookmark_border,
+                                                color: Colors.white,
+                                              ),
                                         color: Colors.white,
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setState(() {
+                                            if (isBookmarked) {
+                                              _bookmarkedSkripsi
+                                                  .remove(widget.skripsi);
+                                            } else {
+                                              _bookmarkedSkripsi
+                                                  .add(widget.skripsi);
+                                            }
+                                          });
+
+                                          if (isBookmarked) {
+                                            context.read<BookmarkBloc>().add(
+                                                BookmarkEvent.removeSkripsi(
+                                                    widget.skripsi.id));
+                                          } else {
+                                            context.read<BookmarkBloc>().add(
+                                                BookmarkEvent.saveSkripsi(
+                                                    widget.skripsi.id));
+                                          }
+
+                                          final snackBar = SnackBar(
+                                            content: Text(isBookmarked
+                                                ? 'Skripsi dihapus dari bookmark'
+                                                : 'Skripsi ditambahkan ke bookmark'),
+                                            duration:
+                                                const Duration(seconds: 2),
+                                          );
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(snackBar);
+                                        },
                                       ),
                                       const Text('Simpan Judul Ini',
                                           style: TextStyle(

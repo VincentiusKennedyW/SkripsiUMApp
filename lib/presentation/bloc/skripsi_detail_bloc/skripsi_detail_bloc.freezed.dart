@@ -529,6 +529,8 @@ abstract class _$$SkripsiDetailLoadedImplCopyWith<$Res> {
       __$$SkripsiDetailLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({SkripsiDetail skripsiDetail});
+
+  $SkripsiDetailCopyWith<$Res> get skripsiDetail;
 }
 
 /// @nodoc
@@ -542,14 +544,22 @@ class __$$SkripsiDetailLoadedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? skripsiDetail = freezed,
+    Object? skripsiDetail = null,
   }) {
     return _then(_$SkripsiDetailLoadedImpl(
-      freezed == skripsiDetail
+      null == skripsiDetail
           ? _value.skripsiDetail
           : skripsiDetail // ignore: cast_nullable_to_non_nullable
               as SkripsiDetail,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SkripsiDetailCopyWith<$Res> get skripsiDetail {
+    return $SkripsiDetailCopyWith<$Res>(_value.skripsiDetail, (value) {
+      return _then(_value.copyWith(skripsiDetail: value));
+    });
   }
 }
 
@@ -571,13 +581,12 @@ class _$SkripsiDetailLoadedImpl implements _SkripsiDetailLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkripsiDetailLoadedImpl &&
-            const DeepCollectionEquality()
-                .equals(other.skripsiDetail, skripsiDetail));
+            (identical(other.skripsiDetail, skripsiDetail) ||
+                other.skripsiDetail == skripsiDetail));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(skripsiDetail));
+  int get hashCode => Object.hash(runtimeType, skripsiDetail);
 
   @JsonKey(ignore: true)
   @override
