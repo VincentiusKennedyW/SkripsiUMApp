@@ -9,11 +9,11 @@ class SkripsiList extends StatefulWidget {
   final Function(Skripsi) onSkripsiTap;
 
   const SkripsiList({
-    Key? key,
+    super.key,
     required this.listSkripsi,
     required this.hasReachedMax,
     required this.onSkripsiTap,
-  }) : super(key: key);
+  });
 
   @override
   _SkripsiListState createState() => _SkripsiListState();
@@ -56,18 +56,11 @@ class _SkripsiListState extends State<SkripsiList> {
                 ),
               )
             : ListTile(
+                leading: CircleAvatar(
+                  child: Text((index + 1).toString()),
+                ),
                 title: Text(widget.listSkripsi[index].judul),
                 subtitle: Text(widget.listSkripsi[index].angkatan),
-                // trailing: IconButton(
-                //   icon: Icon(
-                //     widget.listSkripsi[index].isBookmark
-                //         ? Icons.bookmark
-                //         : Icons.bookmark_border,
-                //   ),
-                //   onPressed: () {
-                //     toggleBookmark(index);
-                //   },
-                // ),
                 onTap: () => widget.onSkripsiTap(widget.listSkripsi[index]),
               );
       },
