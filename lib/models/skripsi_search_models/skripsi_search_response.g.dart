@@ -12,7 +12,7 @@ _$SkripsiSearchResponseImpl _$$SkripsiSearchResponseImplFromJson(
       error: json['error'] as bool,
       founded: (json['founded'] as num).toInt(),
       skripsi: (json['skripsi'] as List<dynamic>)
-          .map((e) => SkripsiDetail.fromJson(e as Map<String, dynamic>))
+          .map((e) => Skripsi.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

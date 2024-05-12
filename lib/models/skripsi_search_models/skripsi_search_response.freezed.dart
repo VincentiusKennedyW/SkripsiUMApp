@@ -23,7 +23,7 @@ SkripsiSearchResponse _$SkripsiSearchResponseFromJson(
 mixin _$SkripsiSearchResponse {
   bool get error => throw _privateConstructorUsedError;
   int get founded => throw _privateConstructorUsedError;
-  List<SkripsiDetail> get skripsi => throw _privateConstructorUsedError;
+  List<Skripsi> get skripsi => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $SkripsiSearchResponseCopyWith<$Res> {
           $Res Function(SkripsiSearchResponse) then) =
       _$SkripsiSearchResponseCopyWithImpl<$Res, SkripsiSearchResponse>;
   @useResult
-  $Res call({bool error, int founded, List<SkripsiDetail> skripsi});
+  $Res call({bool error, int founded, List<Skripsi> skripsi});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$SkripsiSearchResponseCopyWithImpl<$Res,
       skripsi: null == skripsi
           ? _value.skripsi
           : skripsi // ignore: cast_nullable_to_non_nullable
-              as List<SkripsiDetail>,
+              as List<Skripsi>,
     ) as $Val);
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$SkripsiSearchResponseImplCopyWith<$Res>
       __$$SkripsiSearchResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool error, int founded, List<SkripsiDetail> skripsi});
+  $Res call({bool error, int founded, List<Skripsi> skripsi});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$SkripsiSearchResponseImplCopyWithImpl<$Res>
       skripsi: null == skripsi
           ? _value._skripsi
           : skripsi // ignore: cast_nullable_to_non_nullable
-              as List<SkripsiDetail>,
+              as List<Skripsi>,
     ));
   }
 }
@@ -126,7 +126,7 @@ class _$SkripsiSearchResponseImpl implements _SkripsiSearchResponse {
   const _$SkripsiSearchResponseImpl(
       {required this.error,
       required this.founded,
-      required final List<SkripsiDetail> skripsi})
+      required final List<Skripsi> skripsi})
       : _skripsi = skripsi;
 
   factory _$SkripsiSearchResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -136,9 +136,9 @@ class _$SkripsiSearchResponseImpl implements _SkripsiSearchResponse {
   final bool error;
   @override
   final int founded;
-  final List<SkripsiDetail> _skripsi;
+  final List<Skripsi> _skripsi;
   @override
-  List<SkripsiDetail> get skripsi {
+  List<Skripsi> get skripsi {
     if (_skripsi is EqualUnmodifiableListView) return _skripsi;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_skripsi);
@@ -181,10 +181,9 @@ class _$SkripsiSearchResponseImpl implements _SkripsiSearchResponse {
 
 abstract class _SkripsiSearchResponse implements SkripsiSearchResponse {
   const factory _SkripsiSearchResponse(
-          {required final bool error,
-          required final int founded,
-          required final List<SkripsiDetail> skripsi}) =
-      _$SkripsiSearchResponseImpl;
+      {required final bool error,
+      required final int founded,
+      required final List<Skripsi> skripsi}) = _$SkripsiSearchResponseImpl;
 
   factory _SkripsiSearchResponse.fromJson(Map<String, dynamic> json) =
       _$SkripsiSearchResponseImpl.fromJson;
@@ -194,7 +193,7 @@ abstract class _SkripsiSearchResponse implements SkripsiSearchResponse {
   @override
   int get founded;
   @override
-  List<SkripsiDetail> get skripsi;
+  List<Skripsi> get skripsi;
   @override
   @JsonKey(ignore: true)
   _$$SkripsiSearchResponseImplCopyWith<_$SkripsiSearchResponseImpl>
