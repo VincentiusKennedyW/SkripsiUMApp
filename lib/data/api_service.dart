@@ -2,9 +2,10 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:skripsi_mulia_app/models/skripsi_detail_models/skripsi_detail_response.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
+import 'package:skripsi_mulia_app/models/skripsi_search_models/skripsi_search_response.dart';
 
 class ApiService {
-  static String baseUrl = 'http://192.168.1.8:8001/api';
+  static String baseUrl = 'http://192.168.1.5:8001/api';
 
   Future<SkripsiResponse> getSkripsi(String token, [int page = 1]) async {
     try {
@@ -146,6 +147,40 @@ class ApiService {
       }
     } catch (e) {
       throw Exception("Failed to delete bookmark: $e");
+    }
+  }
+
+  Future<SkripsiSearchResponse> searchSkripsi(String token, String keyword,
+      [int page = 1]) async {
+    try {
+      final response = await http.get(
+        Uri.parse('$baseUrl/search?keyword=$keyword&page=$page'),
+        headers: <String, String>{
+          'Accept': 'application/json',
+          'Content-Type': 'application/json; charset=UTF-8',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = json.decode(response.body);
+        final List<dynamic> listSkripsiJson = responseData['skripsi'];
+        final listSkripsi = listSkripsiJson
+            .map((skripsi) => Skripsi.fromJson(skripsi))
+            .toList();
+
+        return SkripsiSearchResponse(
+          error: responseData['error'],
+          founded: responseData['founded'],
+          skripsi: [...listSkripsi],
+        );
+      } else {
+        final errorBody = json.decode(response.body);
+        final errorMessage = errorBody['message'];
+        throw Exception(errorMessage ?? "Failed to search skripsi");
+      }
+    } catch (e) {
+      throw Exception("Failed to search skripsi: $e");
     }
   }
 }

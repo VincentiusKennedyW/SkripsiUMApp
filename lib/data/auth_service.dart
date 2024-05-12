@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:skripsi_mulia_app/models/user_models/user_response.dart';
 
 class AuthService {
-  static String baseUrl = 'http://192.168.1.8:8001/api';
+  static String baseUrl = 'http://192.168.1.5:8001/api';
 
   var loginUrl = '$baseUrl/login';
   var registerUrl = '$baseUrl/register';
