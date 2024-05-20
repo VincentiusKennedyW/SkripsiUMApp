@@ -16,22 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SkripsiEvent {
+  String? get jurusan => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getSkripsi,
-    required TResult Function() getNextSkripsi,
+    required TResult Function(String? jurusan) getSkripsi,
+    required TResult Function(String? jurusan) getNextSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getSkripsi,
-    TResult? Function()? getNextSkripsi,
+    TResult? Function(String? jurusan)? getSkripsi,
+    TResult? Function(String? jurusan)? getNextSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getSkripsi,
-    TResult Function()? getNextSkripsi,
+    TResult Function(String? jurusan)? getSkripsi,
+    TResult Function(String? jurusan)? getNextSkripsi,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +55,10 @@ mixin _$SkripsiEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SkripsiEventCopyWith<SkripsiEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,6 +66,8 @@ abstract class $SkripsiEventCopyWith<$Res> {
   factory $SkripsiEventCopyWith(
           SkripsiEvent value, $Res Function(SkripsiEvent) then) =
       _$SkripsiEventCopyWithImpl<$Res, SkripsiEvent>;
+  @useResult
+  $Res call({String? jurusan});
 }
 
 /// @nodoc
@@ -72,13 +79,30 @@ class _$SkripsiEventCopyWithImpl<$Res, $Val extends SkripsiEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jurusan = freezed,
+  }) {
+    return _then(_value.copyWith(
+      jurusan: freezed == jurusan
+          ? _value.jurusan
+          : jurusan // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$GetSkripsiImplCopyWith<$Res> {
+abstract class _$$GetSkripsiImplCopyWith<$Res>
+    implements $SkripsiEventCopyWith<$Res> {
   factory _$$GetSkripsiImplCopyWith(
           _$GetSkripsiImpl value, $Res Function(_$GetSkripsiImpl) then) =
       __$$GetSkripsiImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? jurusan});
 }
 
 /// @nodoc
@@ -88,54 +112,78 @@ class __$$GetSkripsiImplCopyWithImpl<$Res>
   __$$GetSkripsiImplCopyWithImpl(
       _$GetSkripsiImpl _value, $Res Function(_$GetSkripsiImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jurusan = freezed,
+  }) {
+    return _then(_$GetSkripsiImpl(
+      jurusan: freezed == jurusan
+          ? _value.jurusan
+          : jurusan // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetSkripsiImpl implements _GetSkripsi {
-  const _$GetSkripsiImpl();
+  const _$GetSkripsiImpl({required this.jurusan});
+
+  @override
+  final String? jurusan;
 
   @override
   String toString() {
-    return 'SkripsiEvent.getSkripsi()';
+    return 'SkripsiEvent.getSkripsi(jurusan: $jurusan)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetSkripsiImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GetSkripsiImpl &&
+            (identical(other.jurusan, jurusan) || other.jurusan == jurusan));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, jurusan);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSkripsiImplCopyWith<_$GetSkripsiImpl> get copyWith =>
+      __$$GetSkripsiImplCopyWithImpl<_$GetSkripsiImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getSkripsi,
-    required TResult Function() getNextSkripsi,
+    required TResult Function(String? jurusan) getSkripsi,
+    required TResult Function(String? jurusan) getNextSkripsi,
   }) {
-    return getSkripsi();
+    return getSkripsi(jurusan);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getSkripsi,
-    TResult? Function()? getNextSkripsi,
+    TResult? Function(String? jurusan)? getSkripsi,
+    TResult? Function(String? jurusan)? getNextSkripsi,
   }) {
-    return getSkripsi?.call();
+    return getSkripsi?.call(jurusan);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getSkripsi,
-    TResult Function()? getNextSkripsi,
+    TResult Function(String? jurusan)? getSkripsi,
+    TResult Function(String? jurusan)? getNextSkripsi,
     required TResult orElse(),
   }) {
     if (getSkripsi != null) {
-      return getSkripsi();
+      return getSkripsi(jurusan);
     }
     return orElse();
   }
@@ -173,14 +221,26 @@ class _$GetSkripsiImpl implements _GetSkripsi {
 }
 
 abstract class _GetSkripsi implements SkripsiEvent {
-  const factory _GetSkripsi() = _$GetSkripsiImpl;
+  const factory _GetSkripsi({required final String? jurusan}) =
+      _$GetSkripsiImpl;
+
+  @override
+  String? get jurusan;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetSkripsiImplCopyWith<_$GetSkripsiImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GetNextSkripsiImplCopyWith<$Res> {
+abstract class _$$GetNextSkripsiImplCopyWith<$Res>
+    implements $SkripsiEventCopyWith<$Res> {
   factory _$$GetNextSkripsiImplCopyWith(_$GetNextSkripsiImpl value,
           $Res Function(_$GetNextSkripsiImpl) then) =
       __$$GetNextSkripsiImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String? jurusan});
 }
 
 /// @nodoc
@@ -190,54 +250,79 @@ class __$$GetNextSkripsiImplCopyWithImpl<$Res>
   __$$GetNextSkripsiImplCopyWithImpl(
       _$GetNextSkripsiImpl _value, $Res Function(_$GetNextSkripsiImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? jurusan = freezed,
+  }) {
+    return _then(_$GetNextSkripsiImpl(
+      jurusan: freezed == jurusan
+          ? _value.jurusan
+          : jurusan // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetNextSkripsiImpl implements _GetNextSkripsi {
-  const _$GetNextSkripsiImpl();
+  const _$GetNextSkripsiImpl({required this.jurusan});
+
+  @override
+  final String? jurusan;
 
   @override
   String toString() {
-    return 'SkripsiEvent.getNextSkripsi()';
+    return 'SkripsiEvent.getNextSkripsi(jurusan: $jurusan)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GetNextSkripsiImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$GetNextSkripsiImpl &&
+            (identical(other.jurusan, jurusan) || other.jurusan == jurusan));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, jurusan);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetNextSkripsiImplCopyWith<_$GetNextSkripsiImpl> get copyWith =>
+      __$$GetNextSkripsiImplCopyWithImpl<_$GetNextSkripsiImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getSkripsi,
-    required TResult Function() getNextSkripsi,
+    required TResult Function(String? jurusan) getSkripsi,
+    required TResult Function(String? jurusan) getNextSkripsi,
   }) {
-    return getNextSkripsi();
+    return getNextSkripsi(jurusan);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? getSkripsi,
-    TResult? Function()? getNextSkripsi,
+    TResult? Function(String? jurusan)? getSkripsi,
+    TResult? Function(String? jurusan)? getNextSkripsi,
   }) {
-    return getNextSkripsi?.call();
+    return getNextSkripsi?.call(jurusan);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getSkripsi,
-    TResult Function()? getNextSkripsi,
+    TResult Function(String? jurusan)? getSkripsi,
+    TResult Function(String? jurusan)? getNextSkripsi,
     required TResult orElse(),
   }) {
     if (getNextSkripsi != null) {
-      return getNextSkripsi();
+      return getNextSkripsi(jurusan);
     }
     return orElse();
   }
@@ -275,7 +360,15 @@ class _$GetNextSkripsiImpl implements _GetNextSkripsi {
 }
 
 abstract class _GetNextSkripsi implements SkripsiEvent {
-  const factory _GetNextSkripsi() = _$GetNextSkripsiImpl;
+  const factory _GetNextSkripsi({required final String? jurusan}) =
+      _$GetNextSkripsiImpl;
+
+  @override
+  String? get jurusan;
+  @override
+  @JsonKey(ignore: true)
+  _$$GetNextSkripsiImplCopyWith<_$GetNextSkripsiImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -25,7 +25,8 @@ class SkripsiBloc extends Bloc<SkripsiEvent, SkripsiState> {
       listSkripsi = [];
       final token = await _authService.loadToken();
       try {
-        final skripsiResponse = await _apiService.getSkripsi(token!, page);
+        final skripsiResponse =
+            await _apiService.getSkripsi(token!, event.jurusan!, page);
         listSkripsi = skripsiResponse.skripsi;
         page += 1;
         hasReachedMax = false;
@@ -41,7 +42,8 @@ class SkripsiBloc extends Bloc<SkripsiEvent, SkripsiState> {
       if (page == 1) emit(const SkripsiState.skripsiLoading());
       final token = await _authService.loadToken();
       try {
-        final skripsiResponse = await _apiService.getSkripsi(token!, page);
+        final skripsiResponse =
+            await _apiService.getSkripsi(token!, event.jurusan!, page);
         if (skripsiResponse.skripsi.length < sizeItem) {
           hasReachedMax = true;
         } else {
