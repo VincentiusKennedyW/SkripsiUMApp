@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/skripsi_bloc/skripsi_bloc.dart';
+import 'package:skripsi_mulia_app/utils/theme.dart';
 
 class SkripsiList extends StatefulWidget {
   final List<Skripsi> listSkripsi;
@@ -49,12 +50,13 @@ class _SkripsiListState extends State<SkripsiList> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       controller: scrollController,
       shrinkWrap: true,
       itemCount: (widget.hasReachedMax!)
           ? widget.listSkripsi.length
           : widget.listSkripsi.length + 1,
+      separatorBuilder: (context, index) => const Divider(color: Colors.grey),
       itemBuilder: (context, index) {
         if (index >= widget.listSkripsi.length) {
           // Jika indeks item melebihi jumlah item yang ada, tampilkan indikator loading
@@ -71,7 +73,8 @@ class _SkripsiListState extends State<SkripsiList> {
           // Tampilkan item yang sesuai dengan indeks
           return ListTile(
             leading: CircleAvatar(
-              child: Text((index + 1).toString()),
+              backgroundColor: fourthColor,
+              child: Text((index + 1).toString()), // Change the color here
             ),
             title: Text(widget.listSkripsi[index].judul),
             subtitle: Text(widget.listSkripsi[index].angkatan),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
+import 'package:skripsi_mulia_app/utils/theme.dart';
 
 class SearchSkripsiList extends StatefulWidget {
   final List<Skripsi> listSkripsi;
@@ -20,9 +21,10 @@ class SearchSkripsiList extends StatefulWidget {
 class _SearchSkripsiListState extends State<SearchSkripsiList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
       shrinkWrap: true,
       itemCount: widget.listSkripsi.length,
+      separatorBuilder: (context, index) => const Divider(color: Colors.grey),
       itemBuilder: (context, index) {
         return (index >= widget.listSkripsi.length)
             ? const Center(
@@ -33,6 +35,7 @@ class _SearchSkripsiListState extends State<SearchSkripsiList> {
               )
             : ListTile(
                 leading: CircleAvatar(
+                  backgroundColor: fourthColor,
                   child: Text((index + 1).toString()),
                 ),
                 title: Text(widget.listSkripsi[index].judul),
