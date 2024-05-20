@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/search_skripsi_bloc/search_skripsi_bloc.dart';
-import 'package:skripsi_mulia_app/presentation/widget/search_skripsi_list%20copy.dart';
+import 'package:skripsi_mulia_app/presentation/widget/search_skripsi_list.dart';
 import 'package:skripsi_mulia_app/presentation/widget/skripsi_bottomsheet.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -55,7 +55,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 searchSkripsiLoading: () => const Center(
                   child: CircularProgressIndicator(),
                 ),
-                searchSkripsiLoaded: (listRestaurant, hasReachedMax) {
+                searchSkripsiLoaded: (listRestaurant) {
                   if (listRestaurant.isEmpty) {
                     return const Center(
                       child: Text('Judul Skripsi Tidak Ditemukan'),
@@ -71,7 +71,6 @@ class _SearchScreenState extends State<SearchScreen> {
                     return Expanded(
                       child: SearchSkripsiList(
                         listSkripsi: listRestaurant,
-                        hasReachedMax: hasReachedMax,
                         keyword: context.read<SearchSkripsiBloc>().keyword,
                         onSkripsiTap: (skripsi) {
                           showModalBottomSheet(
