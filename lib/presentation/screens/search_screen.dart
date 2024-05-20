@@ -16,7 +16,10 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Search Restaurant'),
+        title: const Text(
+          'Search Restaurant',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
