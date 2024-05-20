@@ -27,165 +27,222 @@ class _RegisterScreenState extends State<RegisterScreen>
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Material(
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 72),
-            child: BlocListener<RegisterBloc, RegisterState>(
-              listener: (context, state) {
-                state.mapOrNull(
-                  registered: (value) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('User Created'),
-                        backgroundColor: Colors.green,
-                      ),
-                    );
-                    Future.delayed(const Duration(seconds: 1), () {
-                      context.pop();
-                    });
-                  },
-                  registerError: (value) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(value.message),
-                        backgroundColor: Colors.red,
-                      ),
-                    );
-                  },
-                );
-              },
-              child: BlocBuilder<RegisterBloc, RegisterState>(
-                builder: (context, state) {
-                  return Form(
-                    key: _formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Card(
-                          color: secondaryColor,
-                          elevation: 4.0,
-                          margin: const EdgeInsets.only(top: 86),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(24),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  'Register',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: primaryColor,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 18),
-                                TextFormField(
-                                  controller: _usernameController,
-                                  enableSuggestions: false,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter your username';
-                                    } else if (value.trim().length < 6) {
-                                      return 'Username must be at least 6 characters';
-                                    }
-                                    return null;
-                                  },
-                                  decoration: const InputDecoration(
-                                    hintText: 'Enter your username',
-                                  ),
-                                ),
-                                TextFormField(
-                                  controller: _emailController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter your email';
-                                    }
-                                    return null;
-                                  },
-                                  decoration: const InputDecoration(
-                                    hintText: 'Enter your email',
-                                  ),
-                                ),
-                                TextFormField(
-                                  controller: _passwordController,
-                                  validator: (value) {
-                                    if (value == null || value.isEmpty) {
-                                      return 'Please enter your password';
-                                    }
-                                    return null;
-                                  },
-                                  keyboardType: TextInputType.text,
-                                  obscureText: _secureText,
-                                  decoration: InputDecoration(
-                                    hintText: 'Enter your password',
-                                    suffixIcon: IconButton(
-                                      onPressed: showHide,
-                                      icon: Icon(
-                                        _secureText
-                                            ? Icons.visibility_off
-                                            : Icons.visibility,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      BlocProvider.of<RegisterBloc>(context)
-                                          .add(
-                                        RegisterEvent.register(
-                                          username: _usernameController.text,
-                                          email: _emailController.text,
-                                          password: _passwordController.text,
-                                        ),
-                                      );
-                                    }
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 60, vertical: 12),
-                                  ),
-                                  child: state.maybeWhen(
-                                    registerLoading: () =>
-                                        const CircularProgressIndicator(),
-                                    orElse: () => const Text('Register'),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 24),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.pop();
-        },
-        child: const Icon(Icons.arrow_back_ios_new),
-      ),
-    );
-  }
-
   void showHide() {
     setState(() {
       _secureText = !_secureText;
     });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: fourthColor,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 72),
+          child: BlocListener<RegisterBloc, RegisterState>(
+            listener: (context, state) {
+              state.mapOrNull(
+                registered: (value) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('User Created'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                  Future.delayed(const Duration(seconds: 1), () {
+                    context.pop();
+                  });
+                },
+                registerError: (value) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(value.message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                },
+              );
+            },
+            child: BlocBuilder<RegisterBloc, RegisterState>(
+              builder: (context, state) {
+                return Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Register',
+                        style: TextStyle(
+                          fontSize: 48,
+                          fontWeight: FontWeight.bold,
+                          color: thirdColor,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'Buatlah akun untuk mengakses \nRepository Skripsi Mulia',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      TextFormField(
+                        controller: _usernameController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon masukkan NIM Anda';
+                          } else if (value.length != 7) {
+                            return 'NIM harus 7 digit';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.person_outline),
+                          hintText: 'Masukkan NIM Anda',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _emailController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon masukkan email Anda';
+                          } else if (!value
+                              .contains('@universitasmulia.ac.id')) {
+                            return 'Gunakan email @universitasmulia.ac.id';
+                          }
+                          return null;
+                        },
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.email_outlined),
+                          hintText: 'Masukkan Email Anda',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _passwordController,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Mohon masukkan password Anda';
+                          }
+                          return null;
+                        },
+                        keyboardType: TextInputType.text,
+                        obscureText: _secureText,
+                        decoration: InputDecoration(
+                          prefixIcon: const Icon(Icons.lock_outline),
+                          hintText: 'Masukkan Password Anda',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            borderSide: const BorderSide(color: thirdColor),
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: showHide,
+                            icon: Icon(
+                              _secureText
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 32),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            BlocProvider.of<RegisterBloc>(context).add(
+                              RegisterEvent.register(
+                                username: _usernameController.text,
+                                email: _emailController.text,
+                                password: _passwordController.text,
+                              ),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: thirdColor,
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 80.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                        ),
+                        child: state.maybeWhen(
+                          registerLoading: () =>
+                              const CircularProgressIndicator(),
+                          orElse: () => const Text(
+                            'Register',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Already have an account? ',
+                            style: TextStyle(
+                              fontSize: 16,
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              context.pop();
+                            },
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                color: primaryColor,
+                                fontSize: 16.0,
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
