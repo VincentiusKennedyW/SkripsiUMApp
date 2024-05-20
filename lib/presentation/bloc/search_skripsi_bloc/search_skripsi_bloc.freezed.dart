@@ -20,38 +20,32 @@ mixin _$SearchSkripsiEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String keyword) searchSkripsi,
-    required TResult Function(String keyword) getNextSearchSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String keyword)? searchSkripsi,
-    TResult? Function(String keyword)? getNextSearchSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String keyword)? searchSkripsi,
-    TResult Function(String keyword)? getNextSearchSkripsi,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchSkripsi value) searchSkripsi,
-    required TResult Function(_GetNextSearchSkripsi value) getNextSearchSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchSkripsi value)? searchSkripsi,
-    TResult? Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchSkripsi value)? searchSkripsi,
-    TResult Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,7 +155,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String keyword) searchSkripsi,
-    required TResult Function(String keyword) getNextSearchSkripsi,
   }) {
     return searchSkripsi(keyword);
   }
@@ -170,7 +163,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String keyword)? searchSkripsi,
-    TResult? Function(String keyword)? getNextSearchSkripsi,
   }) {
     return searchSkripsi?.call(keyword);
   }
@@ -179,7 +171,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String keyword)? searchSkripsi,
-    TResult Function(String keyword)? getNextSearchSkripsi,
     required TResult orElse(),
   }) {
     if (searchSkripsi != null) {
@@ -192,7 +183,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SearchSkripsi value) searchSkripsi,
-    required TResult Function(_GetNextSearchSkripsi value) getNextSearchSkripsi,
   }) {
     return searchSkripsi(this);
   }
@@ -201,7 +191,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_SearchSkripsi value)? searchSkripsi,
-    TResult? Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
   }) {
     return searchSkripsi?.call(this);
   }
@@ -210,7 +199,6 @@ class _$SearchSkripsiImpl implements _SearchSkripsi {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SearchSkripsi value)? searchSkripsi,
-    TResult Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
     required TResult orElse(),
   }) {
     if (searchSkripsi != null) {
@@ -232,153 +220,12 @@ abstract class _SearchSkripsi implements SearchSkripsiEvent {
 }
 
 /// @nodoc
-abstract class _$$GetNextSearchSkripsiImplCopyWith<$Res>
-    implements $SearchSkripsiEventCopyWith<$Res> {
-  factory _$$GetNextSearchSkripsiImplCopyWith(_$GetNextSearchSkripsiImpl value,
-          $Res Function(_$GetNextSearchSkripsiImpl) then) =
-      __$$GetNextSearchSkripsiImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String keyword});
-}
-
-/// @nodoc
-class __$$GetNextSearchSkripsiImplCopyWithImpl<$Res>
-    extends _$SearchSkripsiEventCopyWithImpl<$Res, _$GetNextSearchSkripsiImpl>
-    implements _$$GetNextSearchSkripsiImplCopyWith<$Res> {
-  __$$GetNextSearchSkripsiImplCopyWithImpl(_$GetNextSearchSkripsiImpl _value,
-      $Res Function(_$GetNextSearchSkripsiImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? keyword = null,
-  }) {
-    return _then(_$GetNextSearchSkripsiImpl(
-      null == keyword
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$GetNextSearchSkripsiImpl implements _GetNextSearchSkripsi {
-  const _$GetNextSearchSkripsiImpl(this.keyword);
-
-  @override
-  final String keyword;
-
-  @override
-  String toString() {
-    return 'SearchSkripsiEvent.getNextSearchSkripsi(keyword: $keyword)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetNextSearchSkripsiImpl &&
-            (identical(other.keyword, keyword) || other.keyword == keyword));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, keyword);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetNextSearchSkripsiImplCopyWith<_$GetNextSearchSkripsiImpl>
-      get copyWith =>
-          __$$GetNextSearchSkripsiImplCopyWithImpl<_$GetNextSearchSkripsiImpl>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyword) searchSkripsi,
-    required TResult Function(String keyword) getNextSearchSkripsi,
-  }) {
-    return getNextSearchSkripsi(keyword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyword)? searchSkripsi,
-    TResult? Function(String keyword)? getNextSearchSkripsi,
-  }) {
-    return getNextSearchSkripsi?.call(keyword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyword)? searchSkripsi,
-    TResult Function(String keyword)? getNextSearchSkripsi,
-    required TResult orElse(),
-  }) {
-    if (getNextSearchSkripsi != null) {
-      return getNextSearchSkripsi(keyword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SearchSkripsi value) searchSkripsi,
-    required TResult Function(_GetNextSearchSkripsi value) getNextSearchSkripsi,
-  }) {
-    return getNextSearchSkripsi(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_SearchSkripsi value)? searchSkripsi,
-    TResult? Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
-  }) {
-    return getNextSearchSkripsi?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchSkripsi value)? searchSkripsi,
-    TResult Function(_GetNextSearchSkripsi value)? getNextSearchSkripsi,
-    required TResult orElse(),
-  }) {
-    if (getNextSearchSkripsi != null) {
-      return getNextSearchSkripsi(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GetNextSearchSkripsi implements SearchSkripsiEvent {
-  const factory _GetNextSearchSkripsi(final String keyword) =
-      _$GetNextSearchSkripsiImpl;
-
-  @override
-  String get keyword;
-  @override
-  @JsonKey(ignore: true)
-  _$$GetNextSearchSkripsiImplCopyWith<_$GetNextSearchSkripsiImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
 mixin _$SearchSkripsiState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() searchSkripsiInitial,
     required TResult Function() searchSkripsiLoading,
-    required TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)
-        searchSkripsiLoaded,
+    required TResult Function(List<Skripsi> skripsi) searchSkripsiLoaded,
     required TResult Function(String message) searchSkripsiError,
   }) =>
       throw _privateConstructorUsedError;
@@ -386,8 +233,7 @@ mixin _$SearchSkripsiState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? searchSkripsiInitial,
     TResult? Function()? searchSkripsiLoading,
-    TResult? Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult? Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult? Function(String message)? searchSkripsiError,
   }) =>
       throw _privateConstructorUsedError;
@@ -395,8 +241,7 @@ mixin _$SearchSkripsiState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? searchSkripsiInitial,
     TResult Function()? searchSkripsiLoading,
-    TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult Function(String message)? searchSkripsiError,
     required TResult orElse(),
   }) =>
@@ -487,8 +332,7 @@ class _$SearchSkripsiInitialImpl implements _SearchSkripsiInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() searchSkripsiInitial,
     required TResult Function() searchSkripsiLoading,
-    required TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)
-        searchSkripsiLoaded,
+    required TResult Function(List<Skripsi> skripsi) searchSkripsiLoaded,
     required TResult Function(String message) searchSkripsiError,
   }) {
     return searchSkripsiInitial();
@@ -499,8 +343,7 @@ class _$SearchSkripsiInitialImpl implements _SearchSkripsiInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? searchSkripsiInitial,
     TResult? Function()? searchSkripsiLoading,
-    TResult? Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult? Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult? Function(String message)? searchSkripsiError,
   }) {
     return searchSkripsiInitial?.call();
@@ -511,8 +354,7 @@ class _$SearchSkripsiInitialImpl implements _SearchSkripsiInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? searchSkripsiInitial,
     TResult Function()? searchSkripsiLoading,
-    TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult Function(String message)? searchSkripsiError,
     required TResult orElse(),
   }) {
@@ -605,8 +447,7 @@ class _$SearchSkripsiLoadingImpl implements _SearchSkripsiLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() searchSkripsiInitial,
     required TResult Function() searchSkripsiLoading,
-    required TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)
-        searchSkripsiLoaded,
+    required TResult Function(List<Skripsi> skripsi) searchSkripsiLoaded,
     required TResult Function(String message) searchSkripsiError,
   }) {
     return searchSkripsiLoading();
@@ -617,8 +458,7 @@ class _$SearchSkripsiLoadingImpl implements _SearchSkripsiLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? searchSkripsiInitial,
     TResult? Function()? searchSkripsiLoading,
-    TResult? Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult? Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult? Function(String message)? searchSkripsiError,
   }) {
     return searchSkripsiLoading?.call();
@@ -629,8 +469,7 @@ class _$SearchSkripsiLoadingImpl implements _SearchSkripsiLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? searchSkripsiInitial,
     TResult Function()? searchSkripsiLoading,
-    TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult Function(String message)? searchSkripsiError,
     required TResult orElse(),
   }) {
@@ -688,7 +527,7 @@ abstract class _$$SearchSkripsiLoadedImplCopyWith<$Res> {
           $Res Function(_$SearchSkripsiLoadedImpl) then) =
       __$$SearchSkripsiLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Skripsi> skripsi, bool? hasReachedMax});
+  $Res call({List<Skripsi> skripsi});
 }
 
 /// @nodoc
@@ -703,17 +542,12 @@ class __$$SearchSkripsiLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? skripsi = null,
-    Object? hasReachedMax = freezed,
   }) {
     return _then(_$SearchSkripsiLoadedImpl(
       null == skripsi
           ? _value._skripsi
           : skripsi // ignore: cast_nullable_to_non_nullable
               as List<Skripsi>,
-      freezed == hasReachedMax
-          ? _value.hasReachedMax
-          : hasReachedMax // ignore: cast_nullable_to_non_nullable
-              as bool?,
     ));
   }
 }
@@ -721,8 +555,7 @@ class __$$SearchSkripsiLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
-  const _$SearchSkripsiLoadedImpl(
-      final List<Skripsi> skripsi, this.hasReachedMax)
+  const _$SearchSkripsiLoadedImpl(final List<Skripsi> skripsi)
       : _skripsi = skripsi;
 
   final List<Skripsi> _skripsi;
@@ -734,11 +567,8 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
   }
 
   @override
-  final bool? hasReachedMax;
-
-  @override
   String toString() {
-    return 'SearchSkripsiState.searchSkripsiLoaded(skripsi: $skripsi, hasReachedMax: $hasReachedMax)';
+    return 'SearchSkripsiState.searchSkripsiLoaded(skripsi: $skripsi)';
   }
 
   @override
@@ -746,14 +576,12 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchSkripsiLoadedImpl &&
-            const DeepCollectionEquality().equals(other._skripsi, _skripsi) &&
-            (identical(other.hasReachedMax, hasReachedMax) ||
-                other.hasReachedMax == hasReachedMax));
+            const DeepCollectionEquality().equals(other._skripsi, _skripsi));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_skripsi), hasReachedMax);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_skripsi));
 
   @JsonKey(ignore: true)
   @override
@@ -767,11 +595,10 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() searchSkripsiInitial,
     required TResult Function() searchSkripsiLoading,
-    required TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)
-        searchSkripsiLoaded,
+    required TResult Function(List<Skripsi> skripsi) searchSkripsiLoaded,
     required TResult Function(String message) searchSkripsiError,
   }) {
-    return searchSkripsiLoaded(skripsi, hasReachedMax);
+    return searchSkripsiLoaded(skripsi);
   }
 
   @override
@@ -779,11 +606,10 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? searchSkripsiInitial,
     TResult? Function()? searchSkripsiLoading,
-    TResult? Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult? Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult? Function(String message)? searchSkripsiError,
   }) {
-    return searchSkripsiLoaded?.call(skripsi, hasReachedMax);
+    return searchSkripsiLoaded?.call(skripsi);
   }
 
   @override
@@ -791,13 +617,12 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? searchSkripsiInitial,
     TResult Function()? searchSkripsiLoading,
-    TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult Function(String message)? searchSkripsiError,
     required TResult orElse(),
   }) {
     if (searchSkripsiLoaded != null) {
-      return searchSkripsiLoaded(skripsi, hasReachedMax);
+      return searchSkripsiLoaded(skripsi);
     }
     return orElse();
   }
@@ -841,12 +666,10 @@ class _$SearchSkripsiLoadedImpl implements _SearchSkripsiLoaded {
 }
 
 abstract class _SearchSkripsiLoaded implements SearchSkripsiState {
-  const factory _SearchSkripsiLoaded(
-          final List<Skripsi> skripsi, final bool? hasReachedMax) =
+  const factory _SearchSkripsiLoaded(final List<Skripsi> skripsi) =
       _$SearchSkripsiLoadedImpl;
 
   List<Skripsi> get skripsi;
-  bool? get hasReachedMax;
   @JsonKey(ignore: true)
   _$$SearchSkripsiLoadedImplCopyWith<_$SearchSkripsiLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -919,8 +742,7 @@ class _$SearchSkripsiErrorImpl implements _SearchSkripsiError {
   TResult when<TResult extends Object?>({
     required TResult Function() searchSkripsiInitial,
     required TResult Function() searchSkripsiLoading,
-    required TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)
-        searchSkripsiLoaded,
+    required TResult Function(List<Skripsi> skripsi) searchSkripsiLoaded,
     required TResult Function(String message) searchSkripsiError,
   }) {
     return searchSkripsiError(message);
@@ -931,8 +753,7 @@ class _$SearchSkripsiErrorImpl implements _SearchSkripsiError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? searchSkripsiInitial,
     TResult? Function()? searchSkripsiLoading,
-    TResult? Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult? Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult? Function(String message)? searchSkripsiError,
   }) {
     return searchSkripsiError?.call(message);
@@ -943,8 +764,7 @@ class _$SearchSkripsiErrorImpl implements _SearchSkripsiError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? searchSkripsiInitial,
     TResult Function()? searchSkripsiLoading,
-    TResult Function(List<Skripsi> skripsi, bool? hasReachedMax)?
-        searchSkripsiLoaded,
+    TResult Function(List<Skripsi> skripsi)? searchSkripsiLoaded,
     TResult Function(String message)? searchSkripsiError,
     required TResult orElse(),
   }) {

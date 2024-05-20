@@ -6,8 +6,8 @@ class SearchSkripsiState with _$SearchSkripsiState {
       _SearchSkripsiInitial;
   const factory SearchSkripsiState.searchSkripsiLoading() =
       _SearchSkripsiLoading;
-  const factory SearchSkripsiState.searchSkripsiLoaded(
-      List<Skripsi> skripsi, bool? hasReachedMax) = _SearchSkripsiLoaded;
+  const factory SearchSkripsiState.searchSkripsiLoaded(List<Skripsi> skripsi) =
+      _SearchSkripsiLoaded;
   const factory SearchSkripsiState.searchSkripsiError(String message) =
       _SearchSkripsiError;
 }
