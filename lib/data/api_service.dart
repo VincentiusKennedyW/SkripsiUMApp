@@ -7,10 +7,11 @@ import 'package:skripsi_mulia_app/models/skripsi_search_models/skripsi_search_re
 class ApiService {
   static String baseUrl = 'http://192.168.1.5:8001/api';
 
-  Future<SkripsiResponse> getSkripsi(String token, [int page = 1]) async {
+  Future<SkripsiResponse> getSkripsi(String token, String jurusan,
+      [int page = 1]) async {
     try {
       final response = await http.get(
-        Uri.parse('$baseUrl/skripsi?page=$page'),
+        Uri.parse('$baseUrl/skripsi?jurusan=$jurusan&page=$page'),
         headers: <String, String>{
           'Accept': 'application/json',
           'Content-Type': 'application/json; charset=UTF-8',
@@ -85,11 +86,16 @@ class ApiService {
 
       if (response.statusCode == 200) {
         final responseData = json.decode(response.body);
-        final List<dynamic> listBookmarkJson = responseData['bookmark_list'];
+        final listBookmarkJson = responseData['bookmark_list'];
 
-        bookmarkedSkripsi = listBookmarkJson
-            .map((skripsi) => Skripsi.fromJson(skripsi))
-            .toList();
+        if (listBookmarkJson != null && listBookmarkJson is List) {
+          bookmarkedSkripsi = listBookmarkJson
+              .map((skripsi) => Skripsi.fromJson(skripsi))
+              .toList();
+        } else {
+          bookmarkedSkripsi = [];
+        }
+
         return bookmarkedSkripsi;
       } else {
         final errorBody = json.decode(response.body);
@@ -150,11 +156,11 @@ class ApiService {
     }
   }
 
-  Future<SkripsiSearchResponse> searchSkripsi(String token, String keyword,
-      [int page = 1]) async {
+  Future<SkripsiSearchResponse> searchSkripsi(
+      String token, String keyword) async {
     try {
       final response = await http.get(
-        Uri.parse('$baseUrl/search?keyword=$keyword&page=$page'),
+        Uri.parse('$baseUrl/search?keyword=$keyword'),
         headers: <String, String>{
           'Accept': 'application/json',
           'Content-Type': 'application/json; charset=UTF-8',
