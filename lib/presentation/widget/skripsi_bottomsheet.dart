@@ -40,7 +40,7 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.3,
+      initialChildSize: 0.4,
       minChildSize: 0.25,
       expand: false,
       builder: (context, scrollController) {
@@ -144,8 +144,8 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
                                   Row(
                                     children: [
                                       const Icon(
-                                        Icons.person_2_outlined,
-                                        color: Colors.red,
+                                        Icons.person,
+                                        color: Colors.white70,
                                         size: 16,
                                       ),
                                       const SizedBox(width: 4),
@@ -160,19 +160,59 @@ class _SkripsiBottomSheetState extends State<SkripsiBottomSheet> {
                                   ),
                                 ],
                               ),
-                              Text(
-                                skripsiDetail.nim,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.numbers_rounded,
+                                    color: Colors.white70,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    skripsiDetail.nim,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                skripsiDetail.angkatan,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.school,
+                                    color: Colors.white70,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    skripsiDetail.jurusan,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.event_available,
+                                    color: Colors.white70,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    skripsiDetail.angkatan,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
