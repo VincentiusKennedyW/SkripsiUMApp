@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/get_bookmark_bloc/get_bookmark_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:skripsi_mulia_app/utils/theme.dart';
 
@@ -33,6 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
           if (index == 2) {
             setState(() {
               context.read<UserBloc>().add(const UserEvent.getUserData());
+              context
+                  .read<GetBookmarkBloc>()
+                  .add(const GetBookmarkEvent.loadBookmarkSkripsi());
             });
           }
         },
