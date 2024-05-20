@@ -38,7 +38,10 @@ final router = GoRouter(
                   name: 'list',
                   path: 'list/:jurusan',
                   builder: (context, state) {
-                    return const SkripsiListScreen();
+                    final jurusan = state.pathParameters['jurusan'];
+                    return SkripsiListScreen(
+                      jurusan: jurusan!,
+                    );
                   },
                 ),
               ],
