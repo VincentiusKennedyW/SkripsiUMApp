@@ -16,7 +16,12 @@ class SkripsiListScreen extends StatefulWidget {
 class _SkripsiListScreenState extends State<SkripsiListScreen> {
   @override
   void initState() {
-    context.read<SkripsiBloc>().add(const SkripsiEvent.getSkripsi());
+    Future.delayed(Duration.zero, () {
+      final jurusan = GoRouterState.of(context).pathParameters['jurusan'];
+      context
+          .read<SkripsiBloc>()
+          .add(SkripsiEvent.getSkripsi(jurusan: jurusan));
+    });
     super.initState();
   }
 
