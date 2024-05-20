@@ -6,6 +6,7 @@ import 'package:skripsi_mulia_app/presentation/screens/bookmark_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/home_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/profile_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/search_screen.dart';
+import 'package:skripsi_mulia_app/presentation/screens/select_jurusan_screen.dart';
 import 'package:skripsi_mulia_app/presentation/screens/skripsi_list_screen.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -31,7 +32,16 @@ final router = GoRouter(
             GoRoute(
               name: 'skripsi',
               path: '/skripsi',
-              builder: (context, state) => const SkripsiListScreen(),
+              builder: (context, state) => SelectJurusanScreen(),
+              routes: [
+                GoRoute(
+                  name: 'list',
+                  path: 'list/:jurusan',
+                  builder: (context, state) {
+                    return const SkripsiListScreen();
+                  },
+                ),
+              ],
             ),
           ],
         ),
