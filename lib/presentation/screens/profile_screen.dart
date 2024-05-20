@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/get_bookmark_bloc/get_bookmark_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/widget/skripsi_bottomsheet.dart';
+import 'package:skripsi_mulia_app/utils/theme.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -11,7 +14,42 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Text(
+          'Profile',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Logout'),
+                      content: const Text('Are you sure want to logout?'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            context.pop();
+                          },
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            context
+                                .read<LoginBloc>()
+                                .add(const LoginEvent.loggedOut());
+                            context.pop();
+                          },
+                          child: const Text('Ok'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              })
+        ],
       ),
       body: Column(
         children: [
@@ -48,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
               );
             },
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 10),
           const Divider(color: Colors.black),
           const ListTile(
             title: Text(
@@ -83,6 +121,7 @@ class ProfileScreen extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return ListTile(
                               leading: CircleAvatar(
+                                backgroundColor: fourthColor,
                                 child: Text((index + 1).toString()),
                               ),
                               title: Text(listBookmark[index].judul),
