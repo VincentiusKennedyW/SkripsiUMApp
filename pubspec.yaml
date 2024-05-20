@@ -28,4 +28,6 @@ dev_dependencies:
   freezed: ^2.4.7
   build_runner: ^2.4.8
 flutter:
+  assets:
+    - assets/images/logo_um.png
   uses-material-design: true
