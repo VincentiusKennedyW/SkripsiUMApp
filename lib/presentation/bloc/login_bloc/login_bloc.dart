@@ -14,7 +14,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(const LoginState.loginLoading());
       try {
         final token = await _authService.login(
-          event.email,
+          event.username,
           event.password,
         );
         await _authService.persistToken(token);

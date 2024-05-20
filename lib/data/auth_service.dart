@@ -12,12 +12,12 @@ class AuthService {
   var logoutUrl = '$baseUrl/logout';
   var meUrl = '$baseUrl/me';
 
-  Future<String> login(String email, String password) async {
+  Future<String> login(String username, String password) async {
     try {
       final response = await http.post(
         Uri.parse(loginUrl),
         body: jsonEncode({
-          'email': email,
+          'username': username,
           'password': password,
         }),
         headers: {

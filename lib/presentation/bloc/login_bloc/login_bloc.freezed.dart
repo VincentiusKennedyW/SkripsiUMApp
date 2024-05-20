@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
+    required TResult Function(String username, String password) login,
     required TResult Function() loggedOut,
     required TResult Function() isLoggedIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
+    TResult? Function(String username, String password)? login,
     TResult? Function()? loggedOut,
     TResult? Function()? isLoggedIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
+    TResult Function(String username, String password)? login,
     TResult Function()? loggedOut,
     TResult Function()? isLoggedIn,
     required TResult orElse(),
@@ -86,7 +86,7 @@ abstract class _$$LoginImplCopyWith<$Res> {
           _$LoginImpl value, $Res Function(_$LoginImpl) then) =
       __$$LoginImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String email, String password});
+  $Res call({String username, String password});
 }
 
 /// @nodoc
@@ -100,13 +100,13 @@ class __$$LoginImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? email = null,
+    Object? username = null,
     Object? password = null,
   }) {
     return _then(_$LoginImpl(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
           ? _value.password
@@ -119,16 +119,16 @@ class __$$LoginImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoginImpl implements _Login {
-  const _$LoginImpl({required this.email, required this.password});
+  const _$LoginImpl({required this.username, required this.password});
 
   @override
-  final String email;
+  final String username;
   @override
   final String password;
 
   @override
   String toString() {
-    return 'LoginEvent.login(email: $email, password: $password)';
+    return 'LoginEvent.login(username: $username, password: $password)';
   }
 
   @override
@@ -136,13 +136,14 @@ class _$LoginImpl implements _Login {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoginImpl &&
-            (identical(other.email, email) || other.email == email) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.password, password) ||
                 other.password == password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email, password);
+  int get hashCode => Object.hash(runtimeType, username, password);
 
   @JsonKey(ignore: true)
   @override
@@ -153,33 +154,33 @@ class _$LoginImpl implements _Login {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
+    required TResult Function(String username, String password) login,
     required TResult Function() loggedOut,
     required TResult Function() isLoggedIn,
   }) {
-    return login(email, password);
+    return login(username, password);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
+    TResult? Function(String username, String password)? login,
     TResult? Function()? loggedOut,
     TResult? Function()? isLoggedIn,
   }) {
-    return login?.call(email, password);
+    return login?.call(username, password);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
+    TResult Function(String username, String password)? login,
     TResult Function()? loggedOut,
     TResult Function()? isLoggedIn,
     required TResult orElse(),
   }) {
     if (login != null) {
-      return login(email, password);
+      return login(username, password);
     }
     return orElse();
   }
@@ -221,10 +222,10 @@ class _$LoginImpl implements _Login {
 
 abstract class _Login implements LoginEvent {
   const factory _Login(
-      {required final String email,
+      {required final String username,
       required final String password}) = _$LoginImpl;
 
-  String get email;
+  String get username;
   String get password;
   @JsonKey(ignore: true)
   _$$LoginImplCopyWith<_$LoginImpl> get copyWith =>
@@ -269,7 +270,7 @@ class _$LoggedOutImpl implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
+    required TResult Function(String username, String password) login,
     required TResult Function() loggedOut,
     required TResult Function() isLoggedIn,
   }) {
@@ -279,7 +280,7 @@ class _$LoggedOutImpl implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
+    TResult? Function(String username, String password)? login,
     TResult? Function()? loggedOut,
     TResult? Function()? isLoggedIn,
   }) {
@@ -289,7 +290,7 @@ class _$LoggedOutImpl implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
+    TResult Function(String username, String password)? login,
     TResult Function()? loggedOut,
     TResult Function()? isLoggedIn,
     required TResult orElse(),
@@ -377,7 +378,7 @@ class _$IsLoggedInImpl implements _IsLoggedIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) login,
+    required TResult Function(String username, String password) login,
     required TResult Function() loggedOut,
     required TResult Function() isLoggedIn,
   }) {
@@ -387,7 +388,7 @@ class _$IsLoggedInImpl implements _IsLoggedIn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String email, String password)? login,
+    TResult? Function(String username, String password)? login,
     TResult? Function()? loggedOut,
     TResult? Function()? isLoggedIn,
   }) {
@@ -397,7 +398,7 @@ class _$IsLoggedInImpl implements _IsLoggedIn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? login,
+    TResult Function(String username, String password)? login,
     TResult Function()? loggedOut,
     TResult Function()? isLoggedIn,
     required TResult orElse(),
