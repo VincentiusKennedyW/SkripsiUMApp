@@ -53,7 +53,7 @@ class MainApp extends StatelessWidget {
         },
         child: MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: 'Restaurant App',
+          title: 'Mulia Repository',
           theme: ThemeData(
             textTheme: myTextTheme,
             colorScheme: Theme.of(context).colorScheme.copyWith(
