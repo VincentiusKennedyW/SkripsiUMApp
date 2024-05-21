@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:skripsi_mulia_app/models/skripsi_detail_models/skripsi_detail_response.dart';
 import 'package:skripsi_mulia_app/models/skripsi_models/skripsi_response.dart';
 import 'package:skripsi_mulia_app/models/skripsi_search_models/skripsi_search_response.dart';
+import 'package:skripsi_mulia_app/utils/env.dart';
 
 class ApiService {
   static String baseUrl = 'http://192.168.1.5:8001/api';
@@ -187,6 +189,23 @@ class ApiService {
       }
     } catch (e) {
       throw Exception("Failed to search skripsi: $e");
+    }
+  }
+
+  final GenerativeModel model =
+      GenerativeModel(model: 'gemini-pro', apiKey: Env.apiKey);
+
+  Future<String> generateTitle(String jurusan, String theme) async {
+    final prompt =
+        'Berikan saya judul skripsi untuk jurusan $jurusan dengan tema $theme';
+    final content = [Content.text(prompt)];
+
+    try {
+      final response = await model.generateContent(content);
+      return response.text?.replaceAll('**', '') ??
+          'Gagal mendapatkan judul skripsi.';
+    } catch (e) {
+      throw Exception('Terjadi kesalahan: $e');
     }
   }
 }
