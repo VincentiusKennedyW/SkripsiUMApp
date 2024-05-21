@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/search_skripsi_bloc/search_skripsi_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/widget/search_skripsi_list.dart';
 import 'package:skripsi_mulia_app/presentation/widget/skripsi_bottomsheet.dart';
+import 'package:skripsi_mulia_app/utils/theme.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -17,10 +18,11 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Search Restaurant',
+          'Pencarian',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
+      backgroundColor: fourthColor,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

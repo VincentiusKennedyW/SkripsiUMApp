@@ -51,6 +51,7 @@ class ProfileScreen extends StatelessWidget {
               })
         ],
       ),
+      backgroundColor: fourthColor,
       body: Column(
         children: [
           BlocBuilder<UserBloc, UserState>(

@@ -28,6 +28,7 @@ class SelectJurusanScreen extends StatelessWidget {
             'Mulia Repository',
             style: TextStyle(fontWeight: FontWeight.bold),
           )),
+      backgroundColor: fourthColor,
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
