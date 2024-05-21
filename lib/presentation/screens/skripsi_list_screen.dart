@@ -31,7 +31,7 @@ class _SkripsiListScreenState extends State<SkripsiListScreen> {
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: FlexibleSpaceBar(
-          title: Text('Skripsi Jurusan ${widget.jurusan}',
+          title: Text(widget.jurusan,
               style: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.white)),
         ),
