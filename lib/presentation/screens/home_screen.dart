@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/get_bookmark_bloc/get_bookmark_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/user_bloc/user_bloc.dart';
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
           );
           setState(() {});
 
-          if (index == 2) {
+          if (index == 3) {
             setState(() {
               context.read<UserBloc>().add(const UserEvent.getUserData());
               context
@@ -43,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: (FaIcon(FontAwesomeIcons.microchip)), label: 'Gemini'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
