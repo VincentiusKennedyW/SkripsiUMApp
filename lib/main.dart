@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/bookmark_bloc/bookmark_bloc.dart';
+import 'package:skripsi_mulia_app/presentation/bloc/gemini_bloc/gemini_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/get_bookmark_bloc/get_bookmark_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/login_bloc/login_bloc.dart';
 import 'package:skripsi_mulia_app/presentation/bloc/register_bloc/register_bloc.dart';
@@ -25,20 +26,16 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              di.locator<LoginBloc>()..add(const LoginEvent.isLoggedIn()),
-        ),
-        BlocProvider(
-          create: (context) => di.locator<RegisterBloc>(),
-        ),
-        BlocProvider(
-          create: (context) => di.locator<UserBloc>(),
-        ),
+            create: (context) =>
+                di.locator<LoginBloc>()..add(const LoginEvent.isLoggedIn())),
+        BlocProvider(create: (context) => di.locator<RegisterBloc>()),
+        BlocProvider(create: (context) => di.locator<UserBloc>()),
         BlocProvider(create: (context) => di.locator<SkripsiBloc>()),
         BlocProvider(create: (context) => di.locator<SkripsiDetailBloc>()),
         BlocProvider(create: (context) => di.locator<BookmarkBloc>()),
         BlocProvider(create: (context) => di.locator<GetBookmarkBloc>()),
         BlocProvider(create: (context) => di.locator<SearchSkripsiBloc>()),
+        BlocProvider(create: (context) => di.locator<GeminiBloc>()),
       ],
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
